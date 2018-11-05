@@ -1,9 +1,6 @@
 // import all of the node modules we installed and need to run this app 
-var nodemon = require("nodemon");
 var mysql = require("mysql");
 var express = require("express");
-var node = require("node");
-var inquirer = require("inquirer");
 var apiRoutes = require("./routes/apiROutes");
 var htmlRoutes = require("./routes/htmlRoutes");
 
@@ -19,14 +16,13 @@ let data = {}
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static("public"));
+app.use(mysql);
 
-// functions
+// function generates random string/characters in javascript
 // toString() will return the specified values
 // toLowerCase() converts string into lowercase letters, does not change the original string
 // .val() gets the current value of the first element in the set of matched elements or set the value of every matched element
 //trim() removes whitespace from both sides of a string
-
-
 // should the function be newNote or text?
 function text (text){
   return text.toString().toLowerCase().val().trim()
@@ -82,4 +78,3 @@ app.listen(PORT, function() {
   console.log("Now listening on PORT: ", PORT);
 });
 
-// my app in the terminal is not coming up when i am typing node server.js
