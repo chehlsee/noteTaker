@@ -1,0 +1,59 @@
+<html>
+
+<head>
+  <title> Note Taker App Easy</title>
+  <!-- import bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+<!-- jumbotron for notetaker used from 11-express-static router index.html file-->
+
+<div class="container">
+  <div class="jumbotron jumbotron--home">
+    <h1 class="display-4">Note Taker: </h1>
+    <p class="lead mt-4">Take Notes with Express and MySQL</p>
+    <a class="btn btn-lg mt-4 btn-success" href="notes.html" role="button">Get Started</a>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">
+            Make a New Note!
+          </h5>
+          <form>
+            <div class="form-group">
+              <label for="name">Title</label>
+              <input type="text" class="form-control" id="name" placeholder="Title of Your Note Goes Here">
+            </div>
+            <div class="form-group">
+              <label for="cause">Body</label>
+              <input type="text" class="form-control" id="cause" placeholder="Body of Your Note Goes Here">
+            </div>
+            <div class="form-group">
+            </div>
+            <button id="newNote-submit" type="submit" class="btn btn-primary mt-4">Submit</button>
+            <button id="newNote-submit" type="delete" class="btn btn-danger mt-4">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script src="//cdn.jsdelivr.net/combine/npm/jquery@3.2.1,npm/axios@0.17.0/dist/axios.min.js"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <!-- server.js -->
+  <script src="js/server.js"></script>
+  <!-- json -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-json/2.6.0/jquery.json.min.js"></script>
+</body>
+
+</html>

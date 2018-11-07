@@ -1,22 +1,29 @@
-// import all of the node modules we installed and need to run this app 
+// connection.js from 07-hotrestaurant
 var mysql = require("mysql");
-var express = require("express");
-var apiRoutes = require("./routes/apiROutes");
-var htmlRoutes = require("./routes/htmlRoutes");
+// import all of the node modules we installed and need to run this app 
 
+var connection;
 
-// create an express application
-const app = express();
-var PORT = process.env.PORT || 3000;
+// Sets up db to connect locally or on JAWSDB if deployed
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+  connection = mysql.createConnection({
+    host: "localhost",
+    port: 8080,
+    user: "root",
+    password: "",
+    database: "noteTaker"
+  });
+}
 
-let data = {}
-
-// load all of the middleware
-// 13-express 11-express-static-router
-app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(express.static("public"));
-app.use(mysql);
+// Turns BOOLEAN 0s and 1s returned from the db into true and false
+connection.config.typeCast = function(field, next) {
+  if (field.type == "TINY" && field.length == 1) {
+    return field.string() == "1"; // 1 = true, 0 = false
+  }
+  return next();
+};
 
 // function generates random string/characters in javascript
 // toString() will return the specified values
@@ -25,23 +32,17 @@ app.use(mysql);
 //trim() removes whitespace from both sides of a string
 // should the function be newNote or text?
 function text (text){
-  return text.toString().toLowerCase().val().trim()
-}
-function randomString(count){
-  let text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  for (let i=0; i < count; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
-}
+   return text.toString().toLowerCase().val().trim()
+ }
+ function randomString(count){
+   let text = "";
+   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+   for (let i=0; i < count; i++) {
+     text += possible.charAt(Math.floor(Math.random() * possible.length));
+   }
+   return text;
+ }
 
-// use API and HTML routes
-// 13-express 11-express-static-router
-// api routes store and retrieve data from the data array. this mimics fetching data from a database and saving to it
-// html files or static routes are the views of our app and they will make requests to the API routes to fetch and update the data
-app.use(apiRoutes);
-app.use(htmlRoutes);
 
 // set up API routes
 app.get("notes.html"), (req, res, next) => {
@@ -73,8 +74,6 @@ app.get("notes.html", (req,res) => res.sendFile(__dirname + "notes.html"))
 app.get("/", (req,res) => res.sendFile(__dirname + "index.html"))
 
 
-// start the application
-app.listen(PORT, function() {
-  console.log("Now listening on PORT: ", PORT);
-});
+// Export the connection so it's available in other parts of the app
+module.exports = connection;
 
