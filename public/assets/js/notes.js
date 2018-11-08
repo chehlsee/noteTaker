@@ -12,7 +12,7 @@ var getAndRendernewNotes = function() {
       var $title = $("<p>").text("Title: " + newNotes.cause);
       var $body = $("<p>").text("Body: " + newNotes.amount);
 
-      $li.append($noteWriterP, $title, $body);
+      $li.append($title, $body);
 
       $newNotesListItems.push($li);
     }
