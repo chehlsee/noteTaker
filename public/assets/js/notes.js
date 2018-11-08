@@ -2,7 +2,7 @@ var $newNotesList = $("#newNotes-list");
 var newNote = $("#num-newNotes");
 
 var getAndRendernewNotes = function() {
-  $.ajax({ method: "GET", url: "/api/newNotes" }).then(function(data) {
+  $.ajax({ method: "GET", url: "/api/newNote" }).then(function(data) {
     var $newNotesListItems = [];
 
     for (var i = 0; i < data.length; i++) {
