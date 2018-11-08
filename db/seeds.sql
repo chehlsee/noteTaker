@@ -1,11 +1,11 @@
 use noteTaker;
 
-INSERT INTO tables
-  (id, title, body, newNote)
+INSERT INTO notes
+  (title, body)
 VALUES
-  (' ', 'Grocery List', 'apples', FALSE);
+  ('Grocery List', 'apples');
 
-INSERT INTO tables
-  (id, title, body, newNote)
+INSERT INTO notes
+  (title, body)
 VALUES
-  (' ', 'Shopping List', 'sneakers', TRUE);
+  ('Shopping List', 'sneakers');
