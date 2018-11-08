@@ -9,8 +9,8 @@ var getAndRendernewNotes = function() {
       var newNotes = data[i];
 
       var $li = $("<li class='list-group-item'>");
-      var $title = $("<p>").text("Title: " + newNotes.cause);
-      var $body = $("<p>").text("Body: " + newNotes.amount);
+      var $title = $("<p>").text("Title: " + newNotes.title);
+      var $body = $("<p>").text("Body: " + newNotes.body);
 
       $li.append($title, $body);
 
