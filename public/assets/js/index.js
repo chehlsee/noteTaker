@@ -1,7 +1,8 @@
-var $newNoteList = $("#newNote-list");
-var $newNotetitle = $("#newNote-title");
-var $newNotebody = $("#newNote-body");
-var $submitBtn = $("#submit-btn");
+var $newNoteList = $("#title");
+var $newNotetitle = $("#title");
+var $newNotebody = $("#body");
+var $submitBtn = $("#newNote-submit");
+var $deleteBtn = $("#newNote-delete");
 
 // Gets all newNote from the database, renders the newNote list
 var getAndRendernewNote = function() {
@@ -71,8 +72,6 @@ var handlenewNoteSubmit = function(event) {
 };
 
 
-getAndRendernewNote();
+// getAndRendernewNote();
 
 $submitBtn.on("click", handlenewNoteSubmit);
-$newNoteList.on("click", ".fa-angle-up", submitNewNote);
-$newNoteList.on("click", ".fa-angle-down", submitNewNote);

@@ -15,7 +15,7 @@
   <div class="jumbotron jumbotron--home">
     <h1 class="display-4">Note Taker: </h1>
     <p class="lead mt-4">Take Notes with Express and MySQL</p>
-    <a class="btn btn-lg mt-4 btn-success" href="notes.html" role="button">Get Started</a>
+    <a class="btn btn-lg mt-4 btn-success" href="/notes" role="button">View Notes</a>
   </div>
   <div class="row mt-4">
     <div class="col-md-12">
@@ -27,16 +27,16 @@
           <form>
             <div class="form-group">
               <label for="name">Title</label>
-              <input type="text" class="form-control" id="name" placeholder="Title of Your Note Goes Here">
+              <input type="text" class="form-control" id="title" placeholder="Title of Your Note Goes Here">
             </div>
             <div class="form-group">
               <label for="cause">Body</label>
-              <input type="text" class="form-control" id="cause" placeholder="Body of Your Note Goes Here">
+              <input type="text" class="form-control" id="body" placeholder="Body of Your Note Goes Here">
             </div>
             <div class="form-group">
             </div>
             <button id="newNote-submit" type="submit" class="btn btn-primary mt-4">Submit</button>
-            <button id="newNote-submit" type="delete" class="btn btn-danger mt-4">Delete</button>
+            <button id="newNote-delete" type="delete" class="btn btn-danger mt-4">Delete</button>
           </form>
         </div>
       </div>
